@@ -23,15 +23,24 @@ public class Zadatak3 {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         driver.get("file:///C:/Users/Asus/Downloads/Zadatak4.html");
-        driver.findElement(By.id("showInBtn")).click();
-        wait
-                .withMessage("Poruka se nije pojavila za 10s")
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("id-0")));
-        System.out.println("Prva poruka se pojavila");
+//        driver.findElement(By.id("showInBtn")).click();
+//        wait
+//                .withMessage("Poruka se nije pojavila za 10s")
+//                .until(ExpectedConditions.presenceOfElementLocated(By.id("id-0")));
+//        System.out.println("Prva poruka se pojavila");
+
+        for (int i = 0; i < 5; i++) {
+            driver.findElement(By.id("showInBtn")).click();
+            wait
+                    .withMessage(i + 1 + ". poruka se nije pojavila.")
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("id-" + i)));
+        }
 
         driver.quit();
 
