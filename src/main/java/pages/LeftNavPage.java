@@ -32,4 +32,5 @@ public class LeftNavPage extends BasicPage{
     public boolean doesLogoutButtonExist () {
         return elementExists(By.linkText("Logout"));
     }
+
 }
