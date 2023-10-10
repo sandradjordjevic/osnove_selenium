@@ -18,4 +18,5 @@ public class TopNavPage extends BasicPage{
     public void clickOnTheShoppingCartButton () {
         getTheShoppingCartButton().click();
     }
+
 }
