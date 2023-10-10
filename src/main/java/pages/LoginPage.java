@@ -38,6 +38,10 @@ public class LoginPage extends BasicPage{
     public boolean doesUsernameInputExist() {
         return elementExists(By.id("user-name"));
     }
-
+    public void login (String username, String password) {
+        clearAndTypeUsername(username);
+        clearAndTypePassword(password);
+        clickOnLoginButton();
+    }
 
 }
