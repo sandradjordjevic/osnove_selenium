@@ -208,6 +208,11 @@ public class SwagLabsTests extends BasicTest{
                 baseUrl + "/cart.html",
                 "Should be redirected to cart page after click on the cart button.");
     }
+    @Test (retryAnalyzer = SwagLabsRetry.class)
+    public void verifyIfTheCartIconHasCorrectNumberOfAddedItems () {
+        addingProductsToCart();
+    }
+
 
 
 
