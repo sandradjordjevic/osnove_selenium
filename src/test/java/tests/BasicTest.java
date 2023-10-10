@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -8,10 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.InventoryPage;
-import pages.LeftNavPage;
-import pages.LoginPage;
-import pages.TopNavPage;
+import pages.*;
 
 import java.time.Duration;
 
@@ -23,6 +21,7 @@ public abstract class BasicTest {
     protected LeftNavPage leftNavPage;
     protected InventoryPage inventoryPage;
     protected TopNavPage topNavPage;
+    protected CartPage cartPage;
     @BeforeClass
     public void setup () {
         WebDriverManager.chromedriver().setup();
@@ -35,6 +34,7 @@ public abstract class BasicTest {
         leftNavPage = new LeftNavPage(driver, wait);
         inventoryPage = new InventoryPage(driver, wait);
         topNavPage = new TopNavPage(driver, wait);
+        cartPage = new CartPage(driver, wait);
 
     }
     @BeforeMethod
@@ -44,6 +44,7 @@ public abstract class BasicTest {
     @AfterMethod
     public void afterMethod () {
         driver.manage().deleteAllCookies();
+        ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
     }
     @AfterClass
     public void afterClass () {

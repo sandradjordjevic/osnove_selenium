@@ -39,4 +39,5 @@ public class LoginPage extends BasicPage{
         return elementExists(By.id("user-name"));
     }
 
+
 }
