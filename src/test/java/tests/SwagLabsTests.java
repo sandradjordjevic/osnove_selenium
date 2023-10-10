@@ -255,6 +255,14 @@ public class SwagLabsTests extends BasicTest{
                 baseUrl + "/inventory.html",
                 "Should be redirected to the products page.");
     }
+    @Test (retryAnalyzer = SwagLabsRetry.class)
+    public void verifyIfAboutOptionIsWorking () {
+        verifyIfTheHamburgerButtonIsWorking();
+        leftNavPage.clickOnTheAboutFromMenuOption();
+        Assert.assertEquals(driver.getCurrentUrl(),
+                "https://saucelabs.com/",
+                "Should be redirected to the sauce labs website");
+    }
 
 
 
