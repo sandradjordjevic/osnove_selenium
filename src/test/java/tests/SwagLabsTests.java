@@ -460,6 +460,16 @@ public class SwagLabsTests extends BasicTest{
         Assert.assertTrue(footer.getTheFacebookButton().isDisplayed(),
                 "Facebook button should be presented on the page");
     }
+    @Test (retryAnalyzer = SwagLabsRetry.class)
+    public void verifyIfTheLinkedinButtonIsPresented () {
+        String username = "standard_user";
+        String password = "secret_sauce";
+
+        loginPage.login(username, password);
+        topNavPage.clickOnTheShoppingCartButton();
+        Assert.assertTrue(footer.getTheLinkedinButton().isDisplayed(),
+                "Linkedin button should be presented on the page");
+    }
 
 
 
