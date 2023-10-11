@@ -3,13 +3,17 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class BasicPage {
     protected WebDriver driver;
     protected WebDriverWait wait;
+
 
     public BasicPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
