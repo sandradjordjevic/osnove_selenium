@@ -345,6 +345,17 @@ public class SwagLabsTests extends BasicTest{
         Assert.assertTrue(cartPage.doesnItemsQuantityIsPresented(),
                 "Quantity of the added item should be visible.");
     }
+    @Test (retryAnalyzer = SwagLabsRetry.class)
+    public void verifyIfTheItemsTitleIsClickable () {
+        String username = "standard_user";
+        String password = "secret_sauce";
+
+        loginPage.login(username, password);
+        inventoryPage.clickOnTheAddToCartButtons();
+        topNavPage.clickOnTheShoppingCartButton();
+        Assert.assertTrue(cartPage.checkTheTitlesAreClickable(),
+                "Title should be clickable.");
+    }
 
 
 
