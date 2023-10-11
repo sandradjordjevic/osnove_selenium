@@ -369,6 +369,17 @@ public class SwagLabsTests extends BasicTest{
                 itemPage.SauceLabsBackpackUrl,
                 "Should be redirected on the product page.");
     }
+    @Test (retryAnalyzer = SwagLabsRetry.class)
+    public void verifyIfTheRemoveButtonIsPresented () {
+        String username = "standard_user";
+        String password = "secret_sauce";
+
+        loginPage.login(username, password);
+        inventoryPage.clickOnTheAddToCartButtons();
+        topNavPage.clickOnTheShoppingCartButton();
+        Assert.assertTrue(cartPage.doesRemoveButtonsAreVisible(),
+                "Remove button should be visible.");
+    }
 
 
 
