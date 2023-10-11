@@ -78,6 +78,9 @@ public class CartPage extends BasicPage{
     public WebElement getContinueShoppingButton () {
         return driver.findElement(By.id("continue-shopping"));
     }
+    public void clickOnTheContinueShoppingButton () {
+        getContinueShoppingButton().click();
+    }
 
 
 }
